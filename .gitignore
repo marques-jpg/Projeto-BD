@@ -1,0 +1,16 @@
+.direnv/
+result
+
+data/
+pgdata/
+*.db
+*.sqlite3
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+.DS_Store
+Thumbs.db
+
+.envrc
