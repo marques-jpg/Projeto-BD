@@ -6,8 +6,6 @@ TRUNCATE TABLE acesso CASCADE;
 TRUNCATE TABLE bilhete CASCADE;
 TRUNCATE TABLE venda CASCADE;
 
--- Esta linha serve para fazer 'babtota' ao RI-4 TEMOS QUE TIRAR ANTES DA ENTREGA -- 
-ALTER TABLE venda DISABLE TRIGGER tg_ri4_venda;
 
 DO $$
 DECLARE
@@ -45,8 +43,6 @@ BEGIN
     END LOOP;
 END $$;
 
--- Esta linha serve para desativar a 'babtota' ao RI-4 TEMOS QUE TIRAR ANTES DA ENTREGA -- 
-ALTER TABLE venda ENABLE TRIGGER tg_ri4_venda;
 
 UPDATE recinto SET votos = 10;
 WITH totais AS (SELECT (SELECT count(*) FROM bilhete WHERE votou = TRUE) as total_votos, (SELECT count(*) FROM recinto) as total_recintos),
